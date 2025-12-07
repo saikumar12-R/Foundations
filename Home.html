@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailwind Setup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <!-- Separate White Navbar -->
+<nav class="bg-white shadow-lg sticky top-0 z-50 font-semibold">
+
+  <!-- Top Contact Bar -->
+  <div class="bg-gray-100 hidden md:flex flex-wrap items-center justify-end gap-6 px-6 py-2 text-sm text-gray-700">
+    <span class="flex items-center gap-2">
+      <i class="bi bi-envelope-fill text-green-600"></i>
+      support@kp-foundation.org
+    </span>
+    <span class="flex items-center gap-2">
+      <i class="bi bi-telephone-fill text-green-600"></i>
+      +91 98765 43210
+    </span>
+    <select class="border px-2 py-1 rounded bg-white text-gray-700 focus:ring-2 focus:ring-green-500">
+      <option>India</option>
+      <option>Australia</option>
+      <option>USA</option>
+      <option>UK</option>
+    </select>
+  </div>
+
+  <!-- Logo + Menu -->
+  <div class="flex items-center justify-between px-6 py-4">
+    
+    <!-- Logo -->
+    <img src="./assets/logo.png" class="h-28 w-auto drop-shadow-md" />
+
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-btn" class="md:hidden text-gray-800 text-3xl focus:outline-none">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex items-center gap-10 text-gray-800 font-serif">
+      <li class="hover:text-green-600 transition cursor-pointer">HOME</li>
+      <li class="hover:text-green-600 transition cursor-pointer">ABOUT</li>
+      <li class="hover:text-green-600 transition cursor-pointer">PROGRAMS</li>
+      <li class="hover:text-green-600 transition cursor-pointer">BLOGS</li>
+      <li class="hover:text-green-600 transition cursor-pointer">HOW TO HELP</li>
+      <li>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full shadow-md transition-all">DONATE NOW</button>
+      </li>
+    </ul>
+  </div>
+
+ <!-- Mobile Menu -->
+<ul id="mobile-menu"
+    class="hidden flex-col w-full text-gray-800 bg-white md:hidden
+           transition-all duration-300 ease-in-out shadow-lg">
+
+  <li class="py-3 border-b text-center hover:text-green-600 cursor-pointer">
+    HOME
+  </li>
+  <li class="py-3 border-b text-center hover:text-green-600 cursor-pointer">
+    ABOUT
+  </li>
+  <li class="py-3 border-b text-center hover:text-green-600 cursor-pointer">
+    PROGRAMS
+  </li>
+  <li class="py-3 border-b text-center hover:text-green-600 cursor-pointer">
+    BLOGS
+  </li>
+  <li class="py-3 border-b text-center hover:text-green-600 cursor-pointer">
+    HOW TO HELP
+  </li>
+
+  <li class="py-4 text-center">
+    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full shadow-md transition-all">
+      DONATE NOW
+    </button>
+  </li>
+
+</ul>
+
+
+</nav>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+
+
+
+  <!-- Hero Section with Background Image -->
+  <div class="relative bg-gray-900 text-white overflow-hidden">
+  <!-- Background Image -->
+  <img 
+    src="./assets/sunset.jpg"
+    class="absolute inset-0 w-full h-full object-cover opacity-60"
+    alt="Sunset background"
+  />
+
+  <!-- Soft Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent"></div>
+
+  <!-- Glow Shapes - Adjusted for mobile -->
+  <div class="absolute top-10 left-4 w-40 h-40 md:top-24 md:left-10 md:w-64 md:h-64 bg-blue-500/30 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-10 right-4 w-44 h-44 md:bottom-20 md:right-10 md:w-72 md:h-72 bg-purple-500/30 blur-3xl rounded-full"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-28 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <!-- Left Text -->
+    <div class="w-full md:w-1/2 text-center md:text-left space-y-4 md:space-y-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug md:leading-tight drop-shadow-xl">
+        Transform Your Vision  
+        <br />
+        <span class="text-green-400">Into Reality</span>
+      </h1>
+      
+      <!-- Typewriter - Adjusted for mobile -->
+      <div class="w-full">
+        <p
+          class="text-base sm:text-lg md:text-xl opacity-90 
+                 overflow-hidden whitespace-nowrap border-r-4 border-cyan-300 
+                 inline-block 
+                 animate-[typing_4s_steps(45)_1,blink_0.8s_step-end_infinite]"
+          style="max-width: 100%;">
+          We craft modern, clean, and powerful digital experiences.
+        </p>
+      </div>
+
+      <!-- Premium Button - Adjusted for mobile -->
+      <div class="mt-4 md:mt-6">
+        <button class="px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-3 bg-green-400 text-gray-900 font-bold rounded-full shadow-lg hover:bg-white transition-all text-sm sm:text-base">
+          Donate Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Cards Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-10 text-gray-800">Latest Updates & Stories</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      
+      <!-- Card 1: Scholarship -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+        <div class="p-4 sm:p-6">
+          <!-- Category Tag -->
+          <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full mb-3 sm:mb-4">
+            Scholarship
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight">
+            Azim Premji Scholarship | Registrations
+          </h3>
+          
+          <!-- Status -->
+          <div class="flex items-center gap-2 mb-3 sm:mb-4">
+            <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span class="text-red-600 font-medium text-sm sm:text-base">(Scholarship Cohort 2025) Closed</span>
+          </div>
+          
+          <!-- Description -->
+          <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+            Applications for the prestigious Azim Premji Scholarship for the 2025 cohort are now closed. Stay tuned for next year's registrations.
+          </p>
+          
+          <!-- Button -->
+          <button class="w-full py-2 sm:py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base">
+            View Details
+          </button>
+        </div>
+      </div>
+      
+      <!-- Card 2: Job Opportunity -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+        <div class="p-4 sm:p-6">
+          <!-- Category Tag -->
+          <div class="inline-block px-3 py-1 bg-green-100 text-green-700 text-sm font-semibold rounded-full mb-3 sm:mb-4">
+            Careers
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight">
+            Inviting Applications for Programme Manager – Strategic Livelihoods
+          </h3>
+          
+          <!-- Status -->
+          <div class="flex items-center gap-2 mb-3 sm:mb-4">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            <span class="text-green-600 font-medium text-sm sm:text-base">Applications Open</span>
+          </div>
+          
+          <!-- Description -->
+          <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+            Join our team as a Programme Manager to lead strategic livelihoods initiatives. Make a difference in community development and sustainable growth.
+          </p>
+          
+          <!-- Button -->
+          <button class="w-full py-2 sm:py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base">
+            Apply Now
+          </button>
+        </div>
+      </div>
+      
+      <!-- Card 3: Success Story -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+        <div class="p-4 sm:p-6">
+          <!-- Category Tag -->
+          <div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-sm font-semibold rounded-full mb-3 sm:mb-4">
+            Success Story
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight">
+            The Valley that Learned to Heal Itself
+          </h3>
+          
+          <!-- Status -->
+          <div class="flex items-center gap-2 mb-3 sm:mb-4">
+            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+            <span class="text-purple-600 font-medium text-sm sm:text-base">Community Transformation</span>
+          </div>
+          
+          <!-- Description -->
+          <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
+            Discover how a remote valley community transformed their lives through sustainable practices, education, and collective effort.
+          </p>
+          
+          <!-- Button -->
+          <button class="w-full py-2 sm:py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors text-sm sm:text-base">
+            Read Story
+          </button>
+        </div>
+      </div>
+      
+      <!-- Card 4: Call to Action -->
+      <div class="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-blue-100">
+        <div class="p-4 sm:p-6">
+          <!-- Icon -->
+          <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 text-center">
+            Make a Difference Today
+          </h3>
+          
+          <!-- Description -->
+          <p class="text-gray-600 mb-4 sm:mb-6 text-center text-sm sm:text-base">
+            Your support can transform lives. Join our mission to create sustainable change in communities worldwide.
+          </p>
+          
+          <!-- Button -->
+          <button class="w-full py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white font-semibold rounded-lg hover:opacity-90 transition-all text-sm sm:text-base">
+            Donate Now
+          </button>
+          
+          <!-- Stats -->
+          <div class="grid grid-cols-2 gap-4 mt-4 sm:mt-6">
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl font-bold text-blue-700">50+</div>
+              <div class="text-xs sm:text-sm text-gray-600">Projects</div>
+            </div>
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl font-bold text-green-700">100K+</div>
+              <div class="text-xs sm:text-sm text-gray-600">Lives Impacted</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <style>
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    
+    /* Custom card hover effect */
+    .hover-lift {
+      transition: transform 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* Make navbar sticky */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+  </style>
+
+  <script>
+    // Add hover effect to all cards
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.bg-white');
+      cards.forEach(card => {
+        card.classList.add('hover-lift');
+      });
+    });
+  </script>
+
+<!-- WHY CHOOSE US + SLIDER SECTION -->
+<section class="bg-white py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+
+    <!-- LEFT CONTENT -->
+    <div class="w-full md:w-1/2 space-y-6">
+      <h2 class="text-4xl font-bold text-gray-900 leading-tight">
+        Why You Should <span class="text-green-600">Choose Us</span>
+      </h2>
+
+      <p class="text-gray-600 text-lg">
+        We are dedicated to creating a positive change through impactful programs,
+        transparency, and community-driven solutions.
+      </p>
+
+      <div class="space-y-4">
+        <div class="flex items-start gap-4">
+          <span class="bg-green-100 p-3 rounded-full">
+            <i class="bi bi-people-fill text-green-600 text-xl"></i>
+          </span>
+          <p class="text-gray-700 font-medium">Experienced & Compassionate Team</p>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <span class="bg-green-100 p-3 rounded-full">
+            <i class="bi bi-lightning-charge-fill text-green-600 text-xl"></i>
+          </span>
+          <p class="text-gray-700 font-medium">Quick Response & Reliable Support</p>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <span class="bg-green-100 p-3 rounded-full">
+            <i class="bi bi-award-fill text-green-600 text-xl"></i>
+          </span>
+          <p class="text-gray-700 font-medium">Commitment to High Impact Projects</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SLIDER -->
+    <div class="w-full md:w-1/2 relative shadow-xl rounded-2xl overflow-hidden group">
+      <img id="slider-img"
+        src="./assets/light.jpg"
+        class="w-full h-72 md:h-80 object-cover rounded-2xl transition-all duration-700" />
+
+      <!-- SLIDER DOTS -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
+        <span class="dot w-3 h-3 bg-white/50 rounded-full border border-white cursor-pointer"></span>
+        <span class="dot w-3 h-3 bg-white/50 rounded-full border border-white cursor-pointer"></span>
+        <span class="dot w-3 h-3 bg-white/50 rounded-full border border-white cursor-pointer"></span>
+      </div>
+
+      <!-- HOVER EFFECT BORDER -->
+      <div class="absolute inset-0 border-4 border-transparent rounded-2xl group-hover:border-green-500 transition"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const images = [
+    "./assets/light.jpg",
+    "./assets/house.jpg",
+    "./assets/classroom.jpg"
+  ];
+
+  let index = 0;
+  const sliderImg = document.getElementById("slider-img");
+  const dots = document.querySelectorAll(".dot");
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove("bg-green-500"));
+    dots[index].classList.add("bg-green-500");
+  }
+
+  function showNextImage() {
+    index = (index + 1) % images.length;
+    sliderImg.src = images[index];
+    updateDots();
+  }
+
+  setInterval(showNextImage, 3000);
+  updateDots();
+</script>
+
+
+
+<!-- Area of Work Section -->
+<section class="bg-gray-50 py-16">
+  <div class="text-center mb-10">
+    <h1 class="text-3xl font-bold text-gray-800">Area of Work</h1>
+    <hr class="w-24 mx-auto border-[3px] border-red-500 mt-2" />
+  </div>
+
+  <div id="area-container"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 max-w-7xl mx-auto"></div>
+</section>
+
+<script>
+  const areas = [
+    { id: 1, name: "Education", logo: "./assets/child.png", image: './assets/light.jpg', bg: "bg-red-500/30" },
+    { id: 2, name: "Health", logo: "https://www.freepik.com/free-vector/hand-heart-logo-design_54170244.htm#fromView=search&page=1&position=2&uuid=d424dd8e-7d3e-4887-b115-63e0224fba7f&query=health+logo", image: './assets/sunset.jpg', bg: "bg-green-500/30" },
+    { id: 3, name: "Livelihoods", logo: "./assets/livelihoods-icon.png", image: './assets/classroom.jpg', bg: "bg-yellow-500/30" },
+    { id: 4, name: "Water & Sanitation", logo: "./assets/water-icon.png", image: './assets/1.jpg', bg: "bg-cyan-500/30" },
+    { id: 5, name: "Disaster Relief", logo: "./assets/disaster-icon.png", image: './assets/2.jpg', bg: "bg-red-500/30" },
+    { id: 6, name: "Environment", logo: "./assets/environment-icon.png", image: './assets/3.jpg', bg: "bg-emerald-500/30" },
+{id: 7, name: "Community Development", logo: "./assets/community-icon.png", image: './assets/4.jpg', bg: "bg-purple-500/30" },
+    { id: 8, name: "Community Development", logo: "./assets/community-icon.png", image: './assets/5.jpg', bg: "bg-purple-500/30" },
+    // { id: 9, name: "Advocacy & Awareness", logo: "./assets/advocacy-icon.png", image: './assets/6.jpg', bg: "bg-pink-500/60" }
+
+  ];
+
+  const container = document.getElementById("area-container");
+
+  areas.forEach(area => {
+    container.innerHTML += `
+      <div class="group bg-white rounded-xl shadow-lg overflow-hidden duration-300 hover:-translate-y-2 relative h-80">
+
+  <!-- Image Top Section -->
+  <img src="${area.image}" class="w-full h-56 object-cover" />
+
+  <!-- Hover Background Color Overlay -->
+  <div class="absolute inset-0 opacity-10 group-hover:opacity-100 ${area.bg} transition-all duration-300"></div>
+
+  <!-- Details bottom section -->
+  <div class="absolute bottom-0 left-0 w-full p-5 flex items-center relative">
+
+    <!-- Icon: Hidden until hover -->
+    <img src="${area.logo}"
+      class="w-12 h-12 absolute left-5 bg-red-500/30 p-2 opacity-0 group-hover:opacity-100
+      group-hover:top-[-12vh] group-hover:translate-x-[15vh]
+      transition-all duration-300 z-10" />
+
+    <!-- Title -->
+    <h3 class="text-xl font-bold text-gray-800 text-center w-full z-10">
+      ${area.name}
+    </h3>
+  </div>
+
+</div>
+
+    `;
+  });
+</script>
+
+
+<!-- donors -->
+<section class="bg-green-500 p-6 overflow-hidden">
+  <h1 class="text-3xl font-bold text-white mb-4 text-center">Our Donors</h1>
+
+  <div class="relative w-full overflow-hidden">
+    
+    <!-- Scrolling Wrapper -->
+    <div id="scroll-wrapper" class="flex items-center gap-10 animate-scroll"></div>
+
+  </div>
+</section>
+  
+<script>
+  const donors = [
+    "./assets/1.jpg",
+    "./assets/2.jpg",
+    "./assets/3.jpg",
+    "./assets/4.jpg",
+    "./assets/5.jpg",
+    "./assets/6.jpg",
+  ];
+
+  const wrapper = document.getElementById("scroll-wrapper");
+
+  // Duplicate array for infinite scrolling
+  const infiniteDonors = [...donors, ...donors];
+
+  infiniteDonors.forEach(src => {
+    wrapper.innerHTML += `
+      <div class="p-4 bg-white/70 rounded-xl shadow-md flex items-center justify-center">
+        <img src="${src}" class="h-56 w-56 object-contain inline-block" />
+      </div>
+    `;
+  });
+</script>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    width: max-content;
+    animation: scroll 25s linear infinite;
+  }
+</style>
+
+
+
+
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
+
+    <!-- Content Section -->
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+
+      <h2 class="text-2xl font-bold uppercase tracking-wide text-green-600">
+        Empowering Communities
+      </h2>
+
+      <h1 class="text-4xl font-extrabold text-gray-900">
+        Kavala Prasad Foundation
+      </h1>
+
+      <p class="text-lg">
+        Kavala Prasad Foundation is a humanitarian organization dedicated to improving the lives 
+        of underprivileged children, families, and communities. Our focus lies in creating 
+        sustainable solutions that ensure access to education, healthcare, clean drinking water, 
+        and livelihood opportunities.
+      </p>
+
+      <h3 class="text-2xl font-bold text-green-600">
+        Our Purpose & Vision
+      </h3>
+
+      <p class="text-lg">
+        We believe in building a society where every individual thrives with dignity and equal 
+        rights. Through impactful initiatives, awareness programs, and community development 
+        efforts, we aim to bring lasting positive change and empower the next generation for 
+        a brighter tomorrow.
+      </p>
+
+      <button class="mt-4 px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-lg transition font-semibold">
+        More About Us
+      </button>
+
+    </div>
+
+    <!-- Image Section -->
+    <div class="relative overflow-hidden group">
+
+      <!-- Decorative Circle Background (Light Green Glow) -->
+      <div class="absolute -top-10 -left-10 w-80 h-80 bg-[#8CC63F] rounded-full blur-3xl opacity-40 
+                  group-hover:opacity-60 transition-all duration-500">
+      </div>
+
+      <!-- Main Image -->
+      <img 
+        src="./assets/foundation.jpg"
+        alt="Kavala Prasad Foundation Image"
+        class="object-cover w-full h-[28rem] transform transition duration-500 ease-in-out group-hover:scale-110 rounded-2xl"
+      />
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="w-full bg-green-600 py-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-6">
+
+    <!-- Center Text -->
+    <h1 class="text-3xl md:text-2xl font-semibold text-white text-center md:text-left">
+      The Best Way to Make a Difference
+      in the Lives of Others
+    </h1>
+
+    <!-- Center Button -->
+    <button 
+      class="px-16 py-3 bg-white text-green-700 font-semibold rounded-full shadow-lg 
+             hover:shadow-xl hover:scale-105 transition-all"
+    >
+      Donate Now
+    </button>
+
+  </div>
+</section>
+
+<section class="bg-gradient-to-br from-red-50 to-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
+  <!-- Soft Background Blobs - Adjusted for mobile -->
+  <div class="absolute top-4 left-0 w-48 h-48 sm:top-10 sm:w-72 sm:h-72 bg-red-200 opacity-40 blur-3xl rounded-full"></div>
+  <div class="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-red-300 opacity-30 blur-3xl rounded-full"></div>
+
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16 px-4 sm:px-6 relative z-10">
+    
+    <!-- Left Image Stack - Fixed Section -->
+    <div class="w-full md:w-1/2 flex justify-center md:justify-start">
+      <div class="stack-container relative w-full max-w-xs sm:max-w-sm h-64 sm:h-80 md:h-96 mx-auto md:mx-0">
+        <!-- All three images always visible -->
+        <div class="ml-12 sm:ml-20 card-stack">
+          <div class="card current" data-index="0">
+            <img src="./assets/9.jpg" class="w-full h-full object-cover rounded-3xl shadow-2xl border-[4px] sm:border-[6px] border-white" alt="Foundation image 1" />
+          </div>
+          <div class="card next" data-index="1">
+            <img src="./assets/5.jpg" class="w-full h-full object-cover rounded-3xl shadow-2xl border-[4px] sm:border-[6px] border-white" alt="Foundation image 2" />
+          </div>
+          <div class="card prev" data-index="2">
+            <img src="./assets/7.jpg" class="w-full h-full object-cover rounded-3xl shadow-2xl border-[4px] sm:border-[6px] border-white" alt="Foundation image 3" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Content -->
+    <div class="w-full md:w-1/2 space-y-6 sm:space-y-8">
+      <!-- Title with Accent Line -->
+      <div class="flex items-start gap-3 sm:gap-4">
+        <div class="w-2 h-12 sm:h-16 md:h-20 bg-red-500 rounded-full shadow-md"></div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          The Kavala Prasad Foundation
+        </h1>
+      </div>
+
+      <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+        The Kavala Prasad Foundation is a non-profit organization dedicated to
+        eradicating classroom hunger by providing mid-day meals to children in
+        need. We aim to ensure that no child goes hungry during school hours.
+      </p>
+
+      <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
+        Since 2005, we have collaborated with schools, local communities, and
+        volunteers to build sustainable programs that support education,
+        nutrition, and long-term well-being.
+      </p>
+
+      <!-- Mission & Vision Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+        <!-- Mission -->
+        <div class="p-4 sm:p-6 bg-white/80 backdrop-blur-md border border-red-200 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-red-600">Our Mission</h3>
+          </div>
+          <p class="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
+            To empower communities with education, nutrition, healthcare, and
+            social support — ensuring equal opportunities for all.
+          </p>
+        </div>
+
+        <!-- Vision -->
+        <div class="p-4 sm:p-6 bg-white/80 backdrop-blur-md border border-red-200 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+            <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-red-600">Our Vision</h3>
+          </div>
+          <p class="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
+            To create a future where every child receives proper nutrition,
+            education, and the chance to build a brighter, healthier life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .stack-container {
+      perspective: 1200px;
+    }
+
+    .card-stack {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.5rem;
+      transform-style: preserve-3d;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Current (Front) Image */
+    .card.current {
+      z-index: 30;
+      transform: translateZ(60px) scale(1);
+      opacity: 1;
+    }
+
+    /* Next (Middle) Image */
+    .card.next {
+      z-index: 20;
+      transform: translateZ(20px) translateX(-30px) scale(0.95);
+      opacity: 0.85;
+    }
+
+    /* Previous (Back) Image */
+    .card.prev {
+      z-index: 10;
+      transform: translateZ(-20px) translateX(-60px) scale(0.9);
+      opacity: 0.7;
+    }
+
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .stack-container {
+        margin-bottom: 2rem;
+        height: 80vw;
+        max-height: 400px;
+      }
+      
+      .card.current {
+        transform: translateZ(40px) scale(1);
+      }
+      
+      .card.next {
+        transform: translateZ(10px) translateX(-20px) scale(0.95);
+      }
+      
+      .card.prev {
+        transform: translateZ(-10px) translateX(-40px) scale(0.9);
+      }
+      
+      .card {
+        border-width: 4px !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stack-container {
+        height: 90vw;
+      }
+      
+      .card.next {
+        transform: translateZ(5px) translateX(-15px) scale(0.95);
+      }
+      
+      .card.prev {
+        transform: translateZ(-5px) translateX(-30px) scale(0.9);
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      
+      function rotateToBack() {
+        // Get current, next, prev cards
+        const currentCard = document.querySelector('.card.current');
+        const nextCard = document.querySelector('.card.next');
+        const prevCard = document.querySelector('.card.prev');
+        
+        if (currentCard && nextCard && prevCard) {
+          // Current goes to back (prev)
+          currentCard.classList.remove('current');
+          currentCard.classList.add('prev');
+          
+          // Next comes to front (current)
+          nextCard.classList.remove('next');
+          nextCard.classList.add('current');
+          
+          // Prev becomes next
+          prevCard.classList.remove('prev');
+          prevCard.classList.add('next');
+        }
+      }
+      
+      // Rotate every 3 seconds
+      setInterval(rotateToBack, 3000);
+    });
+  </script>
+</section>
+
+
+
+<section class="relative overflow-hidden py-20 md:py-28 bg-gradient-to-br from-green-600 via-emerald-500 to-teal-600">
+  <!-- Animated Background Elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 right-0 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-teal-400/15 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 right-1/4 w-40 h-40 bg-white/5 rounded-full blur-2xl floating"></div>
+  </div>
+
+  <!-- Floating Quotes -->
+  <div class="absolute top-10 left-10 text-white/10 text-8xl">
+    <i class="bi bi-quote"></i>
+  </div>
+  <div class="absolute bottom-10 right-10 text-white/10 text-8xl">
+    <i class="bi bi-quote"></i>
+  </div>
+
+  <!-- Main Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-semibold mb-4">
+        <i class="bi bi-star-fill mr-2 text-yellow-300"></i>
+        Trusted by 500+ Contributors
+      </span>
+      
+      <h1 class="montserrat text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+        Voices of
+        <span class="gradient-text inline-block">Impact</span>
+      </h1>
+      
+      <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto">
+        Hear from our biggest contributors who are transforming lives through their generous support
+      </p>
+    </div>
+
+    <!-- Testimonials Slider Container -->
+    <div class="relative">
+      <!-- Navigation Buttons -->
+      <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl transition-all duration-300 hover:scale-110 hover:shadow-2xl">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      
+      <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-20 w-12 h-12 md:w-14 md:h-14 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl transition-all duration-300 hover:scale-110 hover:shadow-2xl">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <!-- Slider -->
+      <div class="overflow-hidden">
+        <div id="testimonialSlider" class="flex transition-transform duration-700 ease-in-out gap-6 md:gap-8">
+          
+          <!-- Testimonial 1 -->
+          <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)] flex-shrink-0">
+            <div class="card-gradient rounded-3xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-3xl h-full">
+              <div class="flex items-start gap-6 mb-6">
+                <div class="relative">
+                  <img src="./assets/10.jpg" 
+                       class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                       alt="Mr. Saikumar">
+                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center border-2 border-white">
+                    <i class="bi bi-check-lg text-white text-sm"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Mr. Saikumar</h3>
+                  <p class="text-emerald-600 font-semibold mb-2">Head - Galway Operations</p>
+                  <div class="flex text-amber-400">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="relative">
+                <i class="bi bi-quote absolute -top-6 -left-2 text-emerald-200 text-4xl"></i>
+                <p class="text-gray-700 text-lg leading-relaxed pl-6">
+                  "Supporting this foundation has been my most rewarding decision. Seeing direct impact on children's education through nutrition programs has transformed my perspective on philanthropy."
+                </p>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500">
+                    <i class="bi bi-calendar3 mr-2"></i>
+                    Contributing since 2018
+                  </span>
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold">
+                    Top Contributor
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)] flex-shrink-0">
+            <div class="card-gradient rounded-3xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-3xl h-full">
+              <div class="flex items-start gap-6 mb-6">
+                <div class="relative">
+                  <img src="./assets/10.jpg" 
+                       class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                       alt="Ms. Priya Sharma">
+                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center border-2 border-white">
+                    <i class="bi bi-award text-white text-sm"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Ms. Priya Sharma</h3>
+                  <p class="text-emerald-600 font-semibold mb-2">Corporate Partnership Lead</p>
+                  <div class="flex text-amber-400">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="relative">
+                <i class="bi bi-quote absolute -top-6 -left-2 text-emerald-200 text-4xl"></i>
+                <p class="text-gray-700 text-lg leading-relaxed pl-6">
+                  "The transparency and impact reporting from this foundation is exceptional. Every rupee donated makes a visible difference. I've recommended them to all my business associates."
+                </p>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500">
+                    <i class="bi bi-currency-rupee mr-2"></i>
+                    Major Donor
+                  </span>
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold">
+                    5+ Years Support
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)] flex-shrink-0">
+            <div class="card-gradient rounded-3xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-3xl h-full">
+              <div class="flex items-start gap-6 mb-6">
+                <div class="relative">
+                  <img src="./assets/10.jpg" 
+                       class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                       alt="Mr. Rajesh Kumar">
+                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center border-2 border-white">
+                    <i class="bi bi-heart-fill text-white text-sm"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Mr. Rajesh Kumar</h3>
+                  <p class="text-emerald-600 font-semibold mb-2">Philanthropist & Investor</p>
+                  <div class="flex text-amber-400">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="relative">
+                <i class="bi bi-quote absolute -top-6 -left-2 text-emerald-200 text-4xl"></i>
+                <p class="text-gray-700 text-lg leading-relaxed pl-6">
+                  "What sets this foundation apart is their sustainable approach. They don't just feed children; they empower communities. My family has made this our primary charity for 7 years."
+                </p>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500">
+                    <i class="bi bi-people-fill mr-2"></i>
+                    Family Foundation
+                  </span>
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold">
+                    Legacy Donor
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="min-w-full md:min-w-[calc(50%-16px)] lg:min-w-[calc(33.333%-21.333px)] flex-shrink-0">
+            <div class="card-gradient rounded-3xl p-8 shadow-2xl border border-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-3xl h-full">
+              <div class="flex items-start gap-6 mb-6">
+                <div class="relative">
+                  <img src="./assets/10.jpg" 
+                       class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border-4 border-white/30 shadow-lg"
+                       alt="Ms. Anjali Mehta">
+                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center border-2 border-white">
+                    <i class="bi bi-gem text-white text-sm"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">Ms. Anjali Mehta</h3>
+                  <p class="text-emerald-600 font-semibold mb-2">Community Impact Director</p>
+                  <div class="flex text-amber-400">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="relative">
+                <i class="bi bi-quote absolute -top-6 -left-2 text-emerald-200 text-4xl"></i>
+                <p class="text-gray-700 text-lg leading-relaxed pl-6">
+                  "The on-ground implementation and monitoring systems are world-class. I've visited multiple project sites and witnessed the transformation firsthand. Highly recommend supporting!"
+                </p>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-gray-100">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-gray-500">
+                    <i class="bi bi-globe2 mr-2"></i>
+                    International Donor
+                  </span>
+                  <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold">
+                    Site Visitor
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dots Indicator -->
+      <div id="dotsContainer" class="flex justify-center gap-3 mt-12">
+        <!-- Dots will be generated by JavaScript -->
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+          <div class="text-3xl md:text-4xl font-bold text-white mb-2">50+</div>
+          <div class="text-white/80 text-sm">Major Contributors</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+          <div class="text-3xl md:text-4xl font-bold text-white mb-2">₹5Cr+</div>
+          <div class="text-white/80 text-sm">Total Contributions</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+          <div class="text-3xl md:text-4xl font-bold text-white mb-2">8+</div>
+          <div class="text-white/80 text-sm">Years Average Support</div>
+        </div>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+          <div class="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
+          <div class="text-white/80 text-sm">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .montserrat {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-gradient {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(240,253,244,0.95) 100%);
+      backdrop-filter: blur(10px);
+    }
+    
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    
+    .shadow-3xl {
+      box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('testimonialSlider');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsContainer = document.getElementById('dotsContainer');
+      
+      let currentIndex = 0;
+      let autoSlideInterval;
+      
+      // Calculate visible testimonials based on screen size
+      function getVisibleCount() {
+        if (window.innerWidth >= 1024) return 3; // Desktop
+        if (window.innerWidth >= 768) return 2;  // Tablet
+        return 1; // Mobile
+      }
+      
+      // Initialize dots
+      function initDots() {
+        dotsContainer.innerHTML = '';
+        const visibleCount = getVisibleCount();
+        const totalSlides = Math.max(1, slider.children.length - visibleCount + 1);
+        
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement('div');
+          dot.className = `w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${i === 0 ? 'bg-white' : 'bg-white/30'}`;
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+      
+      // Update dots
+      function updateDots() {
+        const dots = dotsContainer.children;
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].className = `w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${i === currentIndex ? 'bg-white' : 'bg-white/30'}`;
+        }
+      }
+      
+      // Go to specific slide
+      function goToSlide(index) {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, slider.children.length - visibleCount);
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        
+        // Calculate slide width including gap
+        const slide = slider.children[0];
+        const slideWidth = slide.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(slider).gap);
+        const totalWidth = slideWidth + gap;
+        
+        slider.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+        updateDots();
+      }
+      
+      // Next slide
+      function nextSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, slider.children.length - visibleCount);
+        
+        if (currentIndex < maxIndex) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(0); // Loop to start
+        }
+      }
+      
+      // Previous slide
+      function prevSlide() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, slider.children.length - visibleCount);
+        
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1);
+        } else {
+          goToSlide(maxIndex); // Loop to end
+        }
+      }
+      
+      // Initialize slider
+      function initSlider() {
+        initDots();
+        goToSlide(0);
+        startAutoSlide();
+      }
+      
+      // Auto slide
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+      
+      // Event listeners
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoSlide();
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoSlide();
+      });
+      
+      // Reset auto slide timer
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+      
+      // Pause on hover
+      slider.parentElement.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+      });
+      
+      slider.parentElement.addEventListener('mouseleave', () => {
+        startAutoSlide();
+      });
+      
+      // Touch swipe for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      slider.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      
+      slider.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const difference = touchStartX - touchEndX;
+        
+        if (Math.abs(difference) > swipeThreshold) {
+          if (difference > 0) {
+            nextSlide(); // Swipe left
+          } else {
+            prevSlide(); // Swipe right
+          }
+          resetAutoSlide();
+        }
+      }
+      
+      // Handle resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          initSlider();
+        }, 250);
+      });
+      
+      // Initialize
+      initSlider();
+    });
+  </script>
+</section>
+
+<!-- footer -->
+<section class="bg-black py-20">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    <!-- Foundation Info -->
+    <div class="flex flex-col items-start">
+      <img src="./assets/logo.png" 
+      class="h-24 w-24 mb-4 bg-white p-2 rounded-xl shadow-md" />
+
+      <p class="text-gray-300 leading-relaxed">
+        Kavala Prasad Foundation is a non-profit organization
+        committed to eradicating classroom hunger by
+        providing mid-day meals to children in need.
+      </p>
+
+      <ul class="flex gap-4 mt-4 text-2xl text-white">
+        <li class="hover:text-pink-500 transition"><i class="bi bi-instagram"></i></li>
+        <li class="hover:text-blue-400 transition"><i class="bi bi-twitter"></i></li>
+        <li class="hover:text-blue-600 transition"><i class="bi bi-facebook"></i></li>
+        <li class="hover:text-red-600 transition"><i class="bi bi-youtube"></i></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex flex-col items-start">
+      <h1 class="text-xl font-semibold text-white">Contact</h1>
+      <hr class="w-20 border-[3px] border-red-500 my-2" />
+
+      <p class="text-gray-300 mt-2"><i class="bi bi-geo-alt-fill mr-2"></i> Hyderabad, Ameerpet, India</p>
+      <p class="text-gray-300"><i class="bi bi-telephone-fill mr-2"></i> +91 30 999 7897</p>
+      <p class="text-gray-300"><i class="bi bi-envelope-at-fill mr-2"></i> example@gmail.com</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="flex flex-col items-start">
+      <h1 class="text-xl font-semibold text-white">Quick Links</h1>
+      <hr class="w-20 border-[3px] border-red-500 my-2" />
+
+      <ul class="space-y-2 text-gray-300">
+        <li class="hover:text-white transition">Home</li>
+        <li class="hover:text-white transition">About Us</li>
+        <li class="hover:text-white transition">Our Programs</li>
+        <li class="hover:text-white transition">Donate</li>
+      </ul>
+    </div>
+
+    <!-- Donation Form -->
+    <div>
+      <h1 class="text-xl font-semibold text-white">Make a Donation</h1>
+      <hr class="w-20 border-[3px] border-red-500 my-2" />
+
+      <form class="space-y-3">
+        <input type="text" placeholder="Your Name"
+          class="w-full px-4 py-2 rounded-xl bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+        <input type="email" placeholder="Email Address"
+          class="w-full px-4 py-2 rounded-xl bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+        <input type="number" placeholder="Amount (₹)"
+          class="w-full px-4 py-2 rounded-xl bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+        <button type="submit"
+          class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition">
+          Donate Now
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="text-center text-gray-500 mt-12 text-sm">
+    © 2025 Kavala Prasad Foundation. All Rights Reserved.
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
